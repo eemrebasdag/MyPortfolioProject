@@ -1,0 +1,24 @@
+﻿@model MyPortfolio.Models.TblAbout
+@{
+    ViewBag.Title = "UpdateAbout";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<br />
+<h3>Hakkında Güncelleme Sayfası</h3>
+
+<form method="post">
+    <input hidden name="AboutId" value="@Model.AboutId"/>
+    <label>Resim Url</label>
+    <input type="text" name="ImageUrl" class="form-control" value="@Model.ImageUrl" />
+    <br />
+    <label>Başlık</label>
+    <input type="text" name="Title" class="form-control" value="@Model.Title"/>
+    <br />
+    <label>Açıklama</label>
+    <input type="text" name="Description" class="form-control" value="@Model.Description" />
+    <br />
+    <button class="btn btn-outline-primary">Güncelle</button>
+
+</form>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MyAcademyPortfolioProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MyAcademyPortfolioProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -23,6 +23,14 @@
           <Property Name="ImageUrl" Type="nvarchar(max)" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="TblAdmins">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TblCategories">
           <Key>
@@ -90,6 +98,7 @@
           <Property Name="Icon" Type="nvarchar" MaxLength="50" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Status" Type="bit" />
         </EntityType>
         <EntityType Name="TblSkills">
           <Key>
@@ -107,8 +116,6 @@
           <Property Name="SocialMediaName" Type="nvarchar" MaxLength="50" />
           <Property Name="Url" Type="nvarchar(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'MyAcademyPortfolioProject.dbo.TblTeams' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TblTeams">
           <Key>
             <PropertyRef Name="TeamId" />
@@ -147,9 +154,41 @@ warning 6002: The table/view 'MyAcademyPortfolioProject.dbo.TblTeams' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="MyAcademyPortfolioProjectModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblAbouts" EntityType="Self.TblAbouts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblAdmins" EntityType="Self.TblAdmins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblCategories" EntityType="Self.TblCategories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblContacts" EntityType="Self.TblContacts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblExperiences" EntityType="Self.TblExperiences" Schema="dbo" store:Type="Tables" />
@@ -159,27 +198,14 @@ warning 6002: The table/view 'MyAcademyPortfolioProject.dbo.TblTeams' does not h
           <EntitySet Name="TblServices" EntityType="Self.TblServices" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblSkills" EntityType="Self.TblSkills" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblSocialMedias" EntityType="Self.TblSocialMedias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblTeams" EntityType="Self.TblTeams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblTestimonials" EntityType="Self.TblTestimonials" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TblTeams" EntityType="Self.TblTeams" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [TblTeams].[TeamId] AS [TeamId], 
-    [TblTeams].[ImageUrl] AS [ImageUrl], 
-    [TblTeams].[NameSurname] AS [NameSurname], 
-    [TblTeams].[Title] AS [Title], 
-    [TblTeams].[Description] AS [Description], 
-    [TblTeams].[TwitterUrl] AS [TwitterUrl], 
-    [TblTeams].[FacebookUrl] AS [FacebookUrl], 
-    [TblTeams].[LinkedinUrl] AS [LinkedinUrl], 
-    [TblTeams].[InstagramUrl] AS [InstagramUrl]
-    FROM [dbo].[TblTeams] AS [TblTeams]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_TblProjects_TblCategories" Association="Self.FK_TblProjects_TblCategories">
             <End Role="TblCategories" EntitySet="TblCategories" />
             <End Role="TblProjects" EntitySet="TblProjects" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MyAcademyPortfolioProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -270,6 +296,7 @@ warning 6002: The table/view 'MyAcademyPortfolioProject.dbo.TblTeams' does not h
           <Property Name="Icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
         </EntityType>
         <EntityType Name="TblSkill">
           <Key>
@@ -343,7 +370,57 @@ warning 6002: The table/view 'MyAcademyPortfolioProject.dbo.TblTeams' does not h
             <End Role="TblCategories" EntitySet="TblCategories" />
             <End Role="TblProjects" EntitySet="TblProjects" />
           </AssociationSet>
+          <EntitySet Name="TblAdmins" EntityType="MyAcademyPortfolioProjectModel.TblAdmin" />
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(MyAcademyPortfolioProjectModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(MyAcademyPortfolioProjectModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
+        <EntityType Name="TblAdmin">
+          <Key>
+            <PropertyRef Name="AdminId" />
+          </Key>
+          <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -438,6 +515,7 @@ warning 6002: The table/view 'MyAcademyPortfolioProject.dbo.TblTeams' does not h
           <EntitySetMapping Name="TblServices">
             <EntityTypeMapping TypeName="MyAcademyPortfolioProjectModel.TblService">
               <MappingFragment StoreEntitySet="TblServices">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
                 <ScalarProperty Name="Icon" ColumnName="Icon" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -491,6 +569,39 @@ warning 6002: The table/view 'MyAcademyPortfolioProject.dbo.TblTeams' does not h
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TblAdmins">
+            <EntityTypeMapping TypeName="MyAcademyPortfolioProjectModel.TblAdmin">
+              <MappingFragment StoreEntitySet="TblAdmins">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="MyAcademyPortfolioProjectModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="MyAcademyPortfolioProjectModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="MyAcademyPortfolioProjectModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="MyAcademyPortfolioProjectModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyAcademyPortfolioProjectModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="MyAcademyPortfolioProjectModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MyAcademyPortfolioProjectModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="MyAcademyPortfolioProjectModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="MyAcademyPortfolioProjectModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

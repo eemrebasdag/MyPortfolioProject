@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "AddTeam";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+<br />
+<h3>Yeni Takım Arkadaşı Ekleme Sayfası</h3>
+
+<form method="post">
+    <label>Resim URL</label>
+    <input type="text" name="ImageUrl" class="form-control" />
+    <br /> 
+    <label>İsim Soyisim</label>
+    <input type="text" name="NameSurname" class="form-control" />
+    <br />
+    <label>Unvan</label>
+    <input type="text" name="Title" class="form-control" />
+    <br /> 
+    <label>Açıklama</label>
+    <textarea type="text" name="Description" class="form-control"></textarea>
+    <br />
+    <label>Twitter Url</label>
+    <input type="text" name="TwitterUrl" class="form-control" />
+    <br /> 
+    <label>Facebook Url</label>
+    <input type="text" name="FacebookUrl" class="form-control" />
+    <br />
+    <label>Linkedin Url</label>
+    <input type="text" name="LinkedinUrl" class="form-control" />
+    <br />
+    <label>Instagram Url</label>
+    <input type="text" name="InstagramUrl" class="form-control" />
+    <br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+</form>

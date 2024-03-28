@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "AddTestimonial";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+<br />
+<h3>Yeni Referans Ekleme Sayfası</h3>
+
+<form method="post">
+    <label>Resim URL</label>
+    <input type="text" name="ImageUrl" class="form-control" />
+    <br />
+    <label>İsim Soyisim</label>
+    <input type="text" name="NameSurname" class="form-control" />
+    <br />
+    <label>Unvan</label>
+    <input type="text" name="Title" class="form-control" />
+    <br />
+    <label>Yorum</label>
+    <textarea type="text" name="Comment" class="form-control"></textarea>
+    <br />
+    <label>Yorum Tarihi</label>
+    <input type="date" class="form-control" name="CommentDate" />
+    <br />
+    <label>Durum</label>
+    <select name="Status" class="form-control">
+        <option value="1">Aktif</option>
+        <option value="2">Pasif</option>
+    </select>
+    <br />
+
+    <button class="btn btn-outline-primary">Kaydet</button>
+</form>

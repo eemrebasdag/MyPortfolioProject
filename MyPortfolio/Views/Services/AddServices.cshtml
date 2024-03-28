@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Add Services";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+<br />
+<h3>Yeni Hizmet Ekleme Sayfası</h3>
+
+<form method="post">
+    <label>İkon</label>
+    <input type="text" name="Icon" class="form-control" />
+    <br />
+    <label>İsim</label>
+    <input type="text" name="Title" class="form-control" />
+    <br />
+    <label>Açıklama</label>
+    <textarea type="text" name="Description" class="form-control"></textarea>
+    <br />
+    <button class="btn btn-outline-primary">Kaydet</button>
+</form>
