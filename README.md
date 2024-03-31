@@ -65,8 +65,17 @@
 <img src="https://i.hizliresim.com/hy3tqml.png" alt="UI Screenshot">
 <img src="https://i.hizliresim.com/26j0qqt.png" alt="UI Screenshot">
 <h3>Admin Paneli:</h3>
-<img src="https://i.hizliresim.com/oc6toac.png" alt="Admin Panel Screenshot">
-
+<img src="https://i.hizliresim.com/pgwc6jm.png" alt="Admin Panel Screenshot">
+<img src="https://i.hizliresim.com/r89iu2w.png" alt="Admin Panel Screenshot">
+<img src="https://i.hizliresim.com/ex310rp.png" alt="Admin Panel Screenshot">
+<img src="https://i.hizliresim.com/pm87g01.png" alt="Admin Panel Screenshot">
+<img src="https://i.hizliresim.com/pxnilsv.png" alt="Admin Panel Screenshot">
+<img src="https://i.hizliresim.com/kkqreot.png" alt="Admin Panel Screenshot">
+<img src="https://hizliresim.com/to2bbqf" alt="Admin Panel Screenshot">
+<img src="https://i.hizliresim.com/6aelld0.png" alt="Admin Panel Screenshot">
+<img src="https://i.hizliresim.com/p1j6nww.png" alt="Admin Panel Screenshot">
+<img src="https://i.hizliresim.com/ls5tvtw.png" alt="Admin Panel Screenshot">
+<img src="https://i.hizliresim.com/mwccniu.png" alt="Admin Panel Screenshot">
 <hr>
 
 <h2>Notlar:</h2>
