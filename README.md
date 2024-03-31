@@ -1,4 +1,4 @@
-<h1>Portfolyo Web Uygulaması README</h1>
+<h1>Portfolyo Web Uygulaması</h1>
 
 <hr>
 
@@ -80,8 +80,6 @@
 
 <h2>Notlar:</h2>
 <ul>
-    <li>Proje içerisindeki yönergeleri ve dökümantasyonu dikkatlice inceleyin.</li>
-    <li>Geliştirme aşamasında karşılaştığınız herhangi bir sorunu bildirin.</li>
     <li>Daha fazla özellik eklemek veya mevcutları geliştirmek için kod tabanınızı esnek tutun.</li>
 </ul>
 
