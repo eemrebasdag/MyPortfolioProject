@@ -44,21 +44,21 @@ a:focus {
     font-weight: 600;
     letter-spacing: 1px;
     color: #ffffff;
-    background: #EF233C;
+    background: #535C91;
     border: 2px solid transparent;
     border-radius: 0;
-    box-shadow: inset 0 0 0 50px #EF233C;
+    box-shadow: inset 0 0 0 50px #535C91;
     transition: ease-out 0.3s;
     -webkit-transition: ease-out 0.3s;
     -moz-transition: ease-out 0.3s;
 }
 
-.btn:hover {
-    color: #EF233C;
-    background: transparent;
-    box-shadow: inset 0 0 0 0 #EF233C;
-    border-color: #EF233C;
-}
+    .btn:hover {
+        color: #070F2B;
+        background: transparent;
+        box-shadow: inset 0 0 0 0 #535C91;
+        border-color: #535C91;
+    }
 
 #loader {
     position: fixed;
@@ -177,18 +177,18 @@ a:focus {
         border-bottom: 1px dashed rgba(256, 256, 256, .2);
         z-index: 9;
     }
-    
-    .navbar.nav-sticky {
-        padding: 10px 60px;
-        background: #ffffff !important;
-    }
+
+        .navbar.nav-sticky {
+            padding: 10px 60px;
+            background: linear-gradient(#070F2B, #535C91) !important;
+        }
     
     .navbar .navbar-brand {
         color: #ffffff;
     }
     
     .navbar.nav-sticky .navbar-brand {
-        color: #EF233C;
+        color: white;
     }
 
     .navbar-light .navbar-nav .nav-link,
@@ -201,17 +201,17 @@ a:focus {
     
     .navbar-light.nav-sticky .navbar-nav .nav-link,
     .navbar-light.nav-sticky .navbar-nav .nav-link:focus {
-        color: #414141;
+        color: white;
     }
 
     .navbar-light .navbar-nav .nav-link:hover,
     .navbar-light .navbar-nav .nav-link.active {
-        color: #111111;
+        color: #9290C3;
     }
-    
+
     .navbar-light.nav-sticky .navbar-nav .nav-link:hover,
     .navbar-light.nav-sticky .navbar-nav .nav-link.active {
-        color: #EF233C;
+        color: #9290C3;
     }
 }
 
@@ -248,7 +248,7 @@ a:focus {
     margin-bottom: 45px;
     padding: 120px 0 0 0;
     overflow: hidden;
-    background: linear-gradient(rgba(239, 35, 60, .95), rgba(239, 35, 60, .95)), url(../img/hero-bg.jpg);
+    background: linear-gradient(rgba(7, 15, 43,0.9), rgba(146, 144, 195,0.9)), url(../img/patterns.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -312,12 +312,12 @@ a:focus {
     color: #ffffff;
 }
 
-.hero .hero-btn .btn {
-    margin-top: 35px;
-    color: #EF233C;
-    background: #ffffff;
-    box-shadow: inset 0 0 0 50px #ffffff;
-}
+    .hero .hero-btn .btn {
+        margin-top: 35px;
+        color: #070F2B;
+        background: #ffffff;
+        box-shadow: inset 0 0 0 50px #ffffff;
+    }
 
 .hero .hero-btn .btn:hover {
     color: #ffffff;
@@ -432,27 +432,27 @@ a:focus {
     background: #ffffff;
 }
 
-.section-header p::before {
-    position: absolute;
-    content: "";
-    height: 3px;
-    top: 11px;
-    right: 0;
-    left: -30px;
-    background: #EF233C;
-    z-index: -1;
-}
+    .section-header p::before {
+        position: absolute;
+        content: "";
+        height: 3px;
+        top: 11px;
+        right: 0;
+        left: -30px;
+        background: #070F2B;
+        z-index: -1;
+    }
 
-.section-header p::after {
-    position: absolute;
-    content: "";
-    width: 3px;
-    height: 3px;
-    top: 11px;
-    left: 3px;
-    background: #EF233C;
-    z-index: 1;
-}
+    .section-header p::after {
+        position: absolute;
+        content: "";
+        width: 3px;
+        height: 3px;
+        top: 11px;
+        left: 3px;
+        background: #070F2B;
+        z-index: 1;
+    }
 
 .section-header h2 {
     margin: 0;
@@ -472,6 +472,7 @@ a:focus {
 /********** About CSS **********/
 /*******************************/
 .about {
+    padding-top:40px;
     position: relative;
     width: 100%;
     margin: -45px 0 45px 0;
@@ -530,12 +531,12 @@ a:focus {
     background: #dddddd;
 }
 
-.about .progress .progress-bar {
-    width: 0px;
-    background: #EF233C;
-    border-radius: 10px;
-    transition: 2s;
-}
+    .about .progress .progress-bar {
+        width: 0px;
+        background: #9290C3;
+        border-radius: 10px;
+        transition: 2s;
+    }
 
 .about .about-text a.btn {
     margin-top: 15px;
@@ -561,16 +562,16 @@ a:focus {
     width: 100%;
 }
 
-.experience .timeline::after {
-    content: '';
-    position: absolute;
-    width: 2px;
-    background: #EF233C;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -1px;
-}
+    .experience .timeline::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        background: #535C91;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -1px;
+    }
 
 .experience .timeline .timeline-item {
     position: relative;
@@ -589,18 +590,18 @@ a:focus {
     padding-left: 30px;
 }
 
-.experience .timeline .timeline-item::after {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    top: 48px;
-    right: -8px;
-    background: #ffffff;
-    border: 2px solid #EF233C;
-    border-radius: 16px;
-    z-index: 1;
-}
+    .experience .timeline .timeline-item::after {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        top: 48px;
+        right: -8px;
+        background: #ffffff;
+        border: 2px solid #535C91;
+        border-radius: 16px;
+        z-index: 1;
+    }
 
 .experience .timeline .timeline-item.right::after {
     left: -8px;
@@ -623,17 +624,17 @@ a:focus {
   border-color: transparent #dddddd transparent transparent;
 }
 
-.experience .timeline .timeline-date {
-    position: absolute;
-    width: 100%;
-    top: 44px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #EF233C;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    z-index: 1;
-}
+    .experience .timeline .timeline-date {
+        position: absolute;
+        width: 100%;
+        top: 44px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #535C91;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        z-index: 1;
+    }
 
 .experience .timeline .timeline-item.left .timeline-date {
     text-align: left;
@@ -742,27 +743,27 @@ a:focus {
     transition: ease-out 0.5s;
 }
 
-.service .service-item:hover {
-    box-shadow: inset 800px 0 0 0 #EF233C;
-}
+    .service .service-item:hover {
+        box-shadow: inset 800px 0 0 0 #9290C3;
+    }
 
-.service .service-icon {
-    position: relative;
-    width: 150px;
-    min-height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #EF233C;
-    background: #ffffff;
-}
+    .service .service-icon {
+        position: relative;
+        width: 150px;
+        min-height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #9290C3;
+        background: #ffffff;
+    }
 
-.service .service-icon i {
-    position: relative;
-    font-size: 60px;
-    color: #EF233C;
-    transition: .3s;
-}
+        .service .service-icon i {
+            position: relative;
+            font-size: 60px;
+            color: #9290C3;
+            transition: .3s;
+        }
 
 .service .service-item:hover i {
     font-size: 75px;
@@ -820,30 +821,30 @@ a:focus {
     text-align: center;
 }
 
-.portfolio #portfolio-filter li {
-    cursor: pointer;
-    display: inline-block;
-    margin: 5px;
-    padding: 6px 12px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #ffffff;
-    background: #EF233C;
-    border: 2px solid transparent;
-    border-radius: 0;
-    box-shadow: inset 0 0 0 50px #EF233C;
-    transition: ease-out 0.3s;
-    -webkit-transition: ease-out 0.3s;
-    -moz-transition: ease-out 0.3s;
-}
+    .portfolio #portfolio-filter li {
+        cursor: pointer;
+        display: inline-block;
+        margin: 5px;
+        padding: 6px 12px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #ffffff;
+        background: #070F2B;
+        border: 2px solid transparent;
+        border-radius: 0;
+        box-shadow: inset 0 0 0 50px #070F2B;
+        transition: ease-out 0.3s;
+        -webkit-transition: ease-out 0.3s;
+        -moz-transition: ease-out 0.3s;
+    }
 
-.portfolio #portfolio-filter li:hover,
-.portfolio #portfolio-filter li.filter-active {
-    color: #EF233C;
-    background: transparent;
-    box-shadow: inset 0 0 0 0 #EF233C;
-    border-color: #EF233C;
-}
+        .portfolio #portfolio-filter li:hover,
+        .portfolio #portfolio-filter li.filter-active {
+            color: #070F2B;
+            background: transparent;
+            box-shadow: inset 0 0 0 0 #070F2B;
+            border-color: #070F2B;
+        }
 
 .portfolio .portfolio-item {
     position: relative;
@@ -863,6 +864,7 @@ a:focus {
     position: relative;
     width: 100%; 
     height: 100%; 
+    min-height:300px;
     object-fit: cover;
     transform: scale(1.1);
     transition: .5s;
@@ -901,13 +903,6 @@ a:focus {
     justify-content: center;
     font-size: 45px;
     font-weight: 100;
-}
-
-.portfolio .portfolio-item:hover a.btn {
-    color: #EF233C;
-    background: transparent;
-    box-shadow: inset 0 0 0 0 #EF233C;
-    border-color: #EF233C;
 }
 
 
@@ -1126,13 +1121,13 @@ a:focus {
     padding: 0 30px;
 }
 
-.team .team-text h2 {
-    color: #EF233C;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    transition: 1s;
-}
+    .team .team-text h2 {
+        color: #070F2B;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        transition: 1s;
+    }
 
 .team .team-text h4 {
     font-size: 14px;
@@ -1154,6 +1149,7 @@ a:focus {
 }
 
 .team .team-social a.btn {
+    color:white;
     width: 35px;
     height: 35px;
     padding: 0;
@@ -1165,9 +1161,9 @@ a:focus {
     margin-right: 5px;
 }
 
-.team .team-item:hover {
-    box-shadow: inset 800px 0 0 0 #EF233C;
-}
+    .team .team-item:hover {
+        box-shadow: inset 800px 0 0 0 #1B1A55;
+    }
 
 .team .team-item:hover .team-img img {
     transform: scale(1.2);
@@ -1216,7 +1212,7 @@ a:focus {
     position: relative;
     margin: 45px 0;
     padding: 90px 0;
-    background: #EF233C;
+    background: linear-gradient(rgba(7, 15, 43,0.9), rgba(146, 144, 195,0.9)), url(../img/patterns.jpg);
 }
 
 .testimonial .container {
@@ -1267,12 +1263,12 @@ a:focus {
     font-style: italic;
 }
 
-.testimonial .testimonial-text h3 {
-    color: #EF233C;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
+    .testimonial .testimonial-text h3 {
+        color: #070F2B;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
 
 .testimonial .testimonial-text h4 {
     color: #666666;
@@ -1306,19 +1302,19 @@ a:focus {
     position: relative;
     width: 100%;
     margin: 45px 0;
-    background: #EF233C;
+    background: #535C91;
 }
 
 .contact .container-fluid {
-    background: url(../img/contact.jpg) left center no-repeat;
+    background: url(../img/contact.jpeg) left center no-repeat;
     background-size: contain;
 }
 
-.contact .contact-form {
-    position: relative;
-    padding: 90px 0 90px 45px;
-    background: #EF233C;
-}
+    .contact .contact-form {
+        position: relative;
+        padding: 90px 0 90px 45px;
+        background: #535C91;
+    }
 
 .contact .contact-form input {
     color: #ffffff;
@@ -1349,12 +1345,12 @@ a:focus {
     color: #ffffff;
 }
 
-.contact .contact-form .btn {
-    margin-top: 35px;
-    color: #EF233C;
-    background: #ffffff;
-    box-shadow: inset 0 0 0 50px #ffffff;
-}
+        .contact .contact-form .btn {
+            margin-top: 35px;
+            color: #535C91;
+            background: #ffffff;
+            box-shadow: inset 0 0 0 50px #ffffff;
+        }
 
 .contact .contact-form .btn:hover {
     color: #ffffff;
@@ -1464,8 +1460,7 @@ a:focus {
 /*******************************/
 .footer {
     position: relative;
-    margin-top: 45px;
-    background: #EF233C;
+    background: #070F2B;
 }
 
 .footer .container-fluid {

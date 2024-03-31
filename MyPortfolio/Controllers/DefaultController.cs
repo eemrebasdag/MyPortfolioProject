@@ -18,6 +18,12 @@ namespace MyPortfolio.Controllers
             return View();
         }
 
+        public PartialViewResult DefaultSkillPartial()
+        {
+            var values = db.TblSkills.ToList();
+            return PartialView(values);
+        }
+
         public PartialViewResult DefaultFeaturePartial()
         {
             var values = db.TblFeatures.ToList();
@@ -54,7 +60,7 @@ namespace MyPortfolio.Controllers
 
         public PartialViewResult DefaultTestiomianlsPartial()
         {
-            var values = db.TblTestimonials.ToList();
+            var values = db.TblTestimonials.Where(x => x.Status == true).ToList();
             return PartialView(values); 
         }
 
@@ -69,5 +75,21 @@ namespace MyPortfolio.Controllers
             var values = db.TblContacts.ToList();   
             return PartialView(values);
         }
+
+        public PartialViewResult DefaultFooterPartial() 
+        {
+            var contacts = db.TblContacts.ToList();
+            return PartialView(contacts);
+        }
+
+        [HttpPost]
+        public ActionResult SendMessage(TblMessage message)
+        {
+            db.TblMessages.Add(message);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        
     }
 }

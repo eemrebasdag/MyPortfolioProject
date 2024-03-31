@@ -1,0 +1,78 @@
+﻿@model List<MyPortfolio.Models.TblMessage>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+
+<br>
+<br />
+<h2>Gelen Mesajlar Sayfası</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>İsim</th>
+        <th>Email</th>
+        <th>Konu</th>
+        <th>Sil</th>
+        <th>Görüntüle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Name</td>
+            <td>@item.Email</td>
+            <td>@item.Subject</td>
+            <td><a href="/Messages/DeleteMessages/@item.MessageId" class="btn btn-outline-danger">Sil</a></td>
+            <td>
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#model_@item.MessageId">
+                    Görüntüle
+                </button>
+            </td>
+        </tr>
+
+    }
+</table>
+
+
+@foreach (var item in Model)
+{
+    <!-- Modal -->
+    <div class="modal fade" id="model_@item.MessageId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel_@item.MessageId" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel_@item.MessageId">@item.Subject</h5>
+                    <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>@item.MessageContent</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <a href="/Messages/DeleteMessages/@item.MessageId" class="btn btn-danger">Sil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $('.view-modal').click(function () {
+            var targetModal = $(this).data('target');
+            $(targetModal).modal('show');
+        });
+    });
+</script>

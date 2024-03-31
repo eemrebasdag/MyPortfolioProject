@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyPortfolio.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,7 +10,6 @@ namespace MyPortfolio.Controllers
     public class AdminLayoutController : Controller
     {
         // GET: AdminLayout
-       
         public PartialViewResult AdminLayoutSideBar()
         {
             return PartialView();
@@ -19,5 +19,7 @@ namespace MyPortfolio.Controllers
         {
             return PartialView();
         }
+
+     
     }
 }

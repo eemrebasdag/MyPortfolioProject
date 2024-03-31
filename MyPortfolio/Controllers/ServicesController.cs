@@ -58,5 +58,24 @@ namespace MyPortfolio.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
+        public ActionResult MakeActive(int id)
+        {
+            var value = db.TblServices.Find(id);
+            value.Status = true;
+            db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        [HttpGet]
+        public ActionResult MakePassive(int id)
+        {
+            var value = db.TblServices.Find(id);
+            value.Status = false;
+            db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }

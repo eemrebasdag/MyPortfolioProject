@@ -16,8 +16,11 @@
         <th>#</th>
         <th>İkon</th>
         <th>Hizmet Adı</th>
+        <th>Durum</th>
         <th>Sil</th>
         <th>Güncelle</th>
+        <th>Aktif Yap</th>
+        <th>Pasif Yap</th>
     </tr>
 
     @foreach (var item in Model)
@@ -27,8 +30,11 @@
             <td>@count</td>
             <td><i class="@item.Icon"></i></td>
             <td>@item.Title</td>
+            <td>@(item.Status == true ? "Aktif" : "Pasif")</td>
             <td><a href="/Services/DeleteServices/@item.ServiceId" class="btn btn-outline-danger">Sil</a></td>
             <td><a href="/Services/UpdateServices/@item.ServiceId" class="btn btn-outline-info">Güncelle</a></td>
+            <td><a href="/Services/MakeActive/@item.ServiceId" class="btn btn-outline-success">Aktif </a> </td>
+            <td><a href="/Services/MakePassive/@item.ServiceId" class="btn btn-outline-secondary">Pasif </a> </td>
         </tr>
     }
 </table>

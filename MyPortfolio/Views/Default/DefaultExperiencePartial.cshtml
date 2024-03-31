@@ -1,80 +1,56 @@
 ﻿@model List<MyPortfolio.Models.TblExperience>
 @{
     Layout = null;
+    int count = 0;
 }
 
-@foreach (var item in Model)
-{
+
     <!-- Experience Start -->
     <div class="experience" id="experience">
         <div class="container">
             <header class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
-                <p>My Resume</p>
-                <h2>Working Experience</h2>
+                <p>Özgeçmişim</p>
+                <h2>İş Deneyimlerim</h2>
             </header>
+
             <div class="timeline">
-                <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
-                    <div class="timeline-text">
-                        <div class="timeline-date">2045 - 2050</div>
-                        <h2>Web Developer</h2>
-                        <h4>Soft Agency, San Francisco, CA</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
-                        </p>
-                    </div>
-                </div>
-                <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
-                    <div class="timeline-text">
-                        <div class="timeline-date">2045 - 2050</div>
-                        <h2>Web Developer</h2>
-                        <h4>Soft Agency, San Francisco, CA</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
-                        </p>
-                    </div>
-                </div>
-                <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
-                    <div class="timeline-text">
-                        <div class="timeline-date">2045 - 2050</div>
-                        <h2>Web Developer</h2>
-                        <h4>Soft Agency, San Francisco, CA</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
-                        </p>
-                    </div>
-                </div>
-                <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
-                    <div class="timeline-text">
-                        <div class="timeline-date">2045 - 2050</div>
-                        <h2>Web Developer</h2>
-                        <h4>Soft Agency, San Francisco, CA</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
-                        </p>
-                    </div>
-                </div>
-                <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
-                    <div class="timeline-text">
-                        <div class="timeline-date">2045 - 2050</div>
-                        <h2>Web Developer</h2>
-                        <h4>Soft Agency, San Francisco, CA</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
-                        </p>
-                    </div>
-                </div>
-                <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
-                    <div class="timeline-text">
-                        <div class="timeline-date">2045 - 2050</div>
-                        <h2>Web Developer</h2>
-                        <h4>Soft Agency, San Francisco, CA</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus erat sagittis non. Ut blandit semper pretium.
-                        </p>
-                    </div>
-                </div>
+                @foreach (var item in Model)
+                {
+                    if (count % 2 == 0)
+                    {
+
+                        <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
+                            <div class="timeline-text">
+                                <div class="timeline-date">@item.StartYear - @(item.EndYear == " " || item.EndYear == null ? "Halen Devam Etmekteyim" : item.EndYear)</div>
+                                <h2>@item.Title</h2>
+                                <h4>@item.Company, @item.Location</h4>
+                                <p>
+                                    @item.Description
+                                </p>
+                            </div>
+                        </div>
+
+                        count++;
+
+                    }
+                    else
+                    {
+                        <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
+                            <div class="timeline-text">
+                                <div class="timeline-date">@item.StartYear - @(item.EndYear == " " || item.EndYear == null ? "Halen Devam Etmekteyim" : item.EndYear)</div>
+                                <h2>@item.Title</h2>
+                                <h4>@item.Company, @item.Location</h4>
+                                <p>
+                                    @item.Description
+                                </p>
+                            </div>
+                        </div>
+                        count++;
+                    }
+                }
+
+
             </div>
         </div>
     </div>
     <!-- Job Experience End -->
-}

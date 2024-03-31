@@ -1,0 +1,36 @@
+﻿@model List<MyPortfolio.Models.TblAdmin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+<br>
+<br />
+<h2>Kullanıcılar - Adminler Sayfası</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Resim</th>
+        <th>Kullanıcı Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.AdminId</td>
+            <td><img src="@item.ImageUrl" style="width:100px; height:100px;" /></td>
+            <td>@item.UserName</td>
+            <td><a href="/Profile/DeleteProfiles/@item.AdminId" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="/Profile/UpdateProfiles/@item.AdminId" class="btn btn-outline-info">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<br />
+<a href="/Profile/AddProfiles" class="btn btn-outline-dark">Yeni Kullanıcı Ekle</a>

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -8,13 +7,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DevFolio - Developer Portfolio Template</title>
+    <title>Emir Emre Basdag - Portfolio</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free Website Template" name="keywords">
     <meta content="Free Website Template" name="description">
 
     <!-- Favicon -->
-    <link href="~/Template/devfolio2-main/img/favicon.ico" rel="icon">
+    <link href="~/Content/emrelogo.png" rel="icon">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -25,32 +24,53 @@
     <link href="~/Template/devfolio2-main/lib/animate/animate.min.css" rel="stylesheet">
     <link href="~/Template/devfolio2-main/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="~/Template/devfolio2-main/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/88e3271e0b.js" crossorigin="anonymous"></script>
 
     <!-- Template Stylesheet -->
     <link href="~/Template/devfolio2-main/css/style.css" rel="stylesheet">
+
+    <style>
+        .navbar-logo {
+            display: block; /* Hides the logo for screen sizes smaller than 992px */
+        }
+
+        .navbar-logo-black {
+            scale: 6;
+            padding-left: 25px;
+            display: none; /* Hides the logo for screen sizes smaller than 992px */
+        }
+
+        @@media (max-width: 992px) {
+            .navbar-logo {
+                display: none; /* Hides the logo for screen sizes smaller than 992px */
+            }
+            .navbar-logo-black {
+                display: block; /* Hides the logo for screen sizes smaller than 992px */
+            }
+        }
+
+    </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
     <!-- Nav Bar Start -->
     <div class="navbar navbar-expand-lg bg-light navbar-light">
         <div class="container-fluid">
-            <a href="index.html" class="navbar-brand">DevFolio</a>
+            <a href="~/" class="navbar-brand"><img class="navbar-logo" src="~/Content/emrelogo.png" style="scale:8;" /><img class="navbar-logo-black" src="~/Content/logoblack.png" style="scale:6;" /></a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ml-auto">
-                    <a href="#home" class="nav-item nav-link active">Home</a>
-                    <a href="#about" class="nav-item nav-link">About</a>
-                    <a href="#service" class="nav-item nav-link">Service</a>
-                    <a href="#experience" class="nav-item nav-link">Experience</a>
-                    <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
-                    <a href="#price" class="nav-item nav-link">Price</a>
-                    <a href="#review" class="nav-item nav-link">Review</a>
-                    <a href="#team" class="nav-item nav-link">Team</a>
-                    <a href="#blog" class="nav-item nav-link">Blog</a>
-                    <a href="#contact" class="nav-item nav-link">Contact</a>
+                    <a href="#home" class="nav-item nav-link active">Anasayfa</a>
+                    <a href="#about" class="nav-item nav-link">Hakkımda</a>
+                    <a href="#service" class="nav-item nav-link">Hizmetler</a>
+                    <a href="#experience" class="nav-item nav-link">Deneyimler</a>
+                    <a href="#portfolio" class="nav-item nav-link">Projelerim</a>
+                    <a href="#review" class="nav-item nav-link">Geri Bildirimler</a>
+                    <a href="#team" class="nav-item nav-link">Referanslar</a>
+                    <a href="#contact" class="nav-item nav-link">İletişim</a>
                 </div>
             </div>
         </div>
@@ -62,33 +82,6 @@
     @RenderBody()
 
 
-
-    <!-- Footer Start -->
-    <div class="footer wow fadeIn" data-wow-delay="0.3s">
-        <div class="container-fluid">
-            <div class="container">
-                <div class="footer-info">
-                    <h2>Kate Winslet</h2>
-                    <h3>123 Street, New York, USA</h3>
-                    <div class="footer-menu">
-                        <p>+012 345 67890</p>
-                        <p>info@example.com</p>
-                    </div>
-                    <div class="footer-social">
-                        <a href=""><i class="fab fa-twitter"></i></a>
-                        <a href=""><i class="fab fa-facebook-f"></i></a>
-                        <a href=""><i class="fab fa-youtube"></i></a>
-                        <a href=""><i class="fab fa-instagram"></i></a>
-                        <a href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="container copyright">
-                <p>&copy; <a href="#">Your Site Name</a>, All Right Reserved | Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
     <!-- Back to top button -->
     <a href="#" class="btn back-to-top"><i class="fa fa-chevron-up"></i></a>
 
@@ -116,5 +109,17 @@
 
     <!-- Template Javascript -->
     <script src="~/Template/devfolio2-main/js/main.js"></script>
+    <script>
+        // Custom JavaScript to update the logo source for smaller screen sizes
+        $(document).ready(function () {
+            $(window).on('resize', function () {
+                if ($(window).width() < 992) {
+                    $('#navbar-logo').attr('src', '~/Content/logoblack.png');
+                } else {
+                    $('#navbar-logo').attr('src', '~/Content/emrelogo.png');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
