@@ -56,11 +56,15 @@
 <h2>Ekran Görüntüleri:</h2>
 
 <h3>UI (Kullanıcı Arayüzü):</h3>
-<img src="link/to/UI/screenshot" alt="UI Screenshot">
-
-
+<img src="https://i.hizliresim.com/oc6toac.png" alt="UI Screenshot">
+<img src="https://i.hizliresim.com/7idcwxg.png" alt="UI Screenshot">
+<img src="https://i.hizliresim.com/e62w34n.png" alt="UI Screenshot">
+<img src="https://i.hizliresim.com/kulrycw.png" alt="UI Screenshot">
+<img src="https://i.hizliresim.com/n2youmh.png" alt="UI Screenshot">
+<img src="https://i.hizliresim.com/8ic09ng.png" alt="UI Screenshot">
+<img src="https://i.hizliresim.com/hy3tqml.png" alt="UI Screenshot">
+<img src="https://i.hizliresim.com/26j0qqt.png" alt="UI Screenshot">
 <h3>Admin Paneli:</h3>
-<img src="https://i.hizliresim.com/oc6toac.png" alt="Admin Panel Screenshot">
 <img src="https://i.hizliresim.com/oc6toac.png" alt="Admin Panel Screenshot">
 
 <hr>
